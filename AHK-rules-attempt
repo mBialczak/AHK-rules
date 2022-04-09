@@ -1,0 +1,245 @@
+; **GIT
+
+::gs::git status
+::ga::git add -p
+::gai::git add -i
+::gbib::git bisect bad
+::gbig::git bisect good
+::gbir::git bisect reset
+::gbis::git bisect start
+::gbl::git blame
+::gb::git branch
+::gba::git branch -a
+::gbvv::git branch -vv
+::gchi::git check-ignore
+::gch::git checkout
+::gchb::git checkout -b
+::gci::git clean -i
+::gcn::git clean -n
+::gc::git commit
+::gca::git commit --amend
+::gcm::git commit -m
+::gcvv::git commit -v
+::gcon::git config
+::gconpdu::git config push.default upstream
+::gdc::git diff --cached
+::gd::git diff
+::gdt::git difftool
+::gf::git fetch
+::gfnt::git fetch --no-tags
+::gfppt::git fetch --prune --prune-tags
+::gh::git help
+::gl::git log --oneline --graph -n 
+::glm::git log --merges
+::glkom::git log --graph --pretty=format:'%Cred%h%Creset%w(72,1,2)%s -%C(yellow)%d%Creset %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+return
+::glps::git log -pS
+::glsf::git ls-files -v | less
+::glistlow::git ls-files -v | grep "^[[:lower:]]"
+::gm::git merge
+::gmnoff::git merge --no-ff --edit -m ""
+::gmt::git mergetool
+::gpull::git pull
+::gpre::git pull --rebase
+::gpush::git push
+::gpfwl::git push --force-with-lease
+::gpusho::git push origin
+::gpushft::git push --follow-tags
+::greb::git rebase -i
+::grem::git remote
+::grema::git remote add 
+::gremr::git remote remove
+::gremso::git remote show origin
+::gremuop::git remote update origin --prune
+::gr::git reset
+::grhard::git reset --hard
+::grhoh::git reset --hard ORIG_HEAD
+::gsh::git show
+::gstl::git stash list
+::gstpop::git stash pop
+::gstash::git stash save -u
+::gs1::git status && git log  --oneline  -n 1
+::gt::git tag
+::guiau::git update-index --assume-unchanged 
+::guinau::git update-index --no-assume-unchanged
+::gk::gitk &
+::gka::gitk --all &
+
+
+
+; **TERMINAL
+
+
+::apr::apropos
+::cp::cp -ir
+::duh::du -sh
+::fi::find
+::locb::locate -bie
+::loc::locate -ie
+::lsa::ls -lahF
+::mv::mv -i
+::devn::2> /dev/null
+::sai::sudo apt install
+::sau::sudo apt update
+::safu::sudo apt full-upgrade
+::sudb::sudo updatedb
+::untar::tar -xvf
+::wh::which
+::wha::which -a
+
+
+; **CLANG-FORMAT
+
+::mclang::Language: Cpp
+BasedOnStyle: Chromium
+AccessModifierOffset: '-2'
+AlignAfterOpenBracket: Align
+AllowAllArgumentsOnNextLine: 'false'
+AllowAllParametersOfDeclarationOnNextLine: 'false'
+AllowShortBlocksOnASingleLine: 'false'
+AllowShortCaseLabelsOnASingleLine: 'false'
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: 'false'
+AlwaysBreakTemplateDeclarations: 'Yes'
+BinPackArguments: 'false'
+BinPackParameters: 'false'
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: false
+  AfterClass: true
+  AfterControlStatement: false
+  AfterFunction: true
+  AfterEnum: true
+  AfterExternBlock: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  IndentBraces: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
+BreakBeforeTernaryOperators: 'true'
+BreakConstructorInitializers: BeforeColon
+BreakInheritanceList: BeforeColon
+ColumnLimit: '0'
+CompactNamespaces: 'false'
+Cpp11BracedListStyle: 'false'
+FixNamespaceComments: 'true'
+IncludeBlocks: Regroup
+IndentCaseLabels: 'true'
+IndentPPDirectives: BeforeHash
+IndentWidth: '4'
+IndentWrappedFunctionNames: 'true'
+MaxEmptyLinesToKeep: '1'
+PenaltyBreakBeforeFirstCallParameter: '0'
+PointerAlignment: Left
+ReflowComments: 'true'
+SortIncludes: 'true'
+SortUsingDeclarations: 'true'
+SpaceAfterCStyleCast: 'true'
+SpaceAfterLogicalNot: 'false'
+SpaceAfterTemplateKeyword: 'true'
+SpaceBeforeAssignmentOperators: 'true'
+SpaceBeforeCpp11BracedList: 'true'
+SpaceBeforeCtorInitializerColon: 'true'
+SpaceBeforeInheritanceColon: 'true'
+#SpaceBeforeParens: NonEmptyParentheses
+SpaceBeforeRangeBasedForLoopColon: 'true'
+SpaceInEmptyParentheses: 'false'
+SpacesBeforeTrailingComments: '3'
+SpacesInCStyleCastParentheses: 'true'
+SpacesInContainerLiterals: 'true'
+Standard: Cpp11
+TabWidth: '4'
+UseTab: Never
+return
+
+; **CMAKE
+
+::cmb::cmake --build.
+::cm::cmake ..
+::cmdeb::cmake -DCMAKE_BUILD_TYPE=Debug ..
+::cmrel::cmake -DCMAKE_BUILD_TYPE=Release ..
+
+; **google-test specific
+
+::gtest-cmake::cmake_minimum_required(VERSION 3.15)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+if (MSVC)
+# warning level 4
+add_compile_options(/W4)
+else()
+# lots of warnings
+add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
+include_directories( ${CMAKE_SOURCE_DIR}/include)
+
+# prepare Google Test
+include(FetchContent)
+FetchContent_Declare(
+   googletest
+   GIT_REPOSITORY https://github.com/google/googletest
+   GIT_TAG main)
+FetchContent_MakeAvailable(googletest)
+
+project( VERSION )
+enable_testing()
+
+# main app target
+add_library( )
+add_executable(${PROJECT_NAME} )
+target_link_libraries(${PROJECT_NAME} )
+
+# test target
+add_executable(${PROJECT_NAME}-ut test.cpp)
+target_link_libraries(${PROJECT_NAME}-ut gtest_main gmock_main)
+
+include(GoogleTest)
+gtest_discover_tests(${PROJECT_NAME}-ut)
+return
+
+::mycmake::cmake_minimum_required(VERSION 3.15)
+
+project( VERSION )
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+
+if (MSVC)
+  # warning level 4
+  add_compile_options(/W4)
+else()
+  # lots of warnings
+  add_compile_options(-Wall
+                                             -Wextra
+                                             -Wpedantic
+                                             -Werror)
+endif()
+
+set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
+
+include_directories( ${CMAKE_SOURCE_DIR}/include)
+
+add_executable()
+return
+
+
+
+; **GDB
+ 
+::fcmd::focus cmd
+::fs::fs
+::ifnol::info locals
+::sv::set variable
+::tuie::tui enable
+
+
